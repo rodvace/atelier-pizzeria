@@ -1,6 +1,6 @@
 <?php
 
-// Fonction lister les Clients dans un tableau
+// Connexion à la base de données
 function ConnectToBDD() {
     try {
         $dsn = 'mysql:dbname=pizzeria;host=localhost';
@@ -77,7 +77,7 @@ function listCommande($pdo)
         }
 }
 
-// Fonction ajouter une Nouvel Pizza
+// Fonction ajouter une Nouvelle Pizza
 function ajoutPizza($pdo)
 {
     try {
