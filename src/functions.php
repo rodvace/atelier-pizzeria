@@ -111,7 +111,7 @@ function ajoutClient($pdo)
         INSERT INTO client (nom, prenom, ville, age)
         VALUES (:nom, :prenom, :ville, :age);
         ");
-        if (trim($_POST['nom']) != '' && trim($_POST['prenom']) != '' && trim($_POST['ville']) != '' && trim($_POST['age']) != '') {
+        if (trim($_POST['nom']) != '' && trim($_POST['prenom']) != '' && trim($_POST['ville']) != '' && trim($_POST['age']) >= 0) {
         $stmt->execute(['nom' => ($_POST['nom']), 'prenom' => ($_POST['prenom']), 'ville' => ($_POST['ville']), 'age' => ($_POST['age'])]);
         echo '<h1>Bravo !</h1>';
         echo 'Ce client fait désormais parti de notre liste !';
