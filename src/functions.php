@@ -85,12 +85,18 @@ function ajoutPizza($pdo)
         INSERT INTO pizza (libelle, reference, prix, url_image)
         VALUES (:libelle, :reference, :prix, :url_image);
         ");
+        if ($_POST['libelle'] != '' && $_POST['reference'] != '' && $_POST['prix'] != '' && $_POST['url_image'] != '') {
         $stmt->execute(['libelle' => ($_POST['libelle']), 'reference' => ($_POST['reference']), 'prix' => ($_POST['prix']), 'url_image' => ($_POST['url_image'])]);
         echo '<h1>Bravo !</h1>';
         echo 'Votre Pizza fait désomais partie de la liste !';
         echo '<br><br>';
         echo '<a href="pizzas.php">Retourner à la liste des Pizzas</a>';
-         } 
+        } else {
+            echo 'Veuillez renseigner toutes les informations !';
+            echo '<br><br>';
+            echo '<a href="ajoutpizza.html">Retour au formulaire</a>';
+               }
+        } 
     catch (PDOException $e) 
         {
         echo $e->getMessage();
@@ -105,12 +111,18 @@ function ajoutClient($pdo)
         INSERT INTO client (nom, prenom, ville, age)
         VALUES (:nom, :prenom, :ville, :age);
         ");
+        if ($_POST['nom'] != '' && $POST['prenom'] != '' && $_POST['ville'] != '' && $_POST['age'] != '') {
         $stmt->execute(['nom' => ($_POST['nom']), 'prenom' => ($_POST['prenom']), 'ville' => ($_POST['ville']), 'age' => ($_POST['age'])]);
         echo '<h1>Bravo !</h1>';
         echo 'Ce client fait désormais parti de notre liste !';
         echo '<br><br>';
         echo '<a href="clients.php">Retourner à la liste des Clients</a>';
-         } 
+        } else {
+            echo 'Veuillez renseigner toutes les informations !';
+            echo '<br><br>';
+            echo '<a href="ajoutclient.html">Retour au formulaire</a>';
+               }
+        } 
     catch (PDOException $e) 
         {
         echo $e->getMessage();
@@ -165,12 +177,18 @@ function ajoutCommande($pdo)
         INSERT INTO commande (numero_commande, date_commande, livreur_id, client_id)
         VALUES (:numero_commande, :date_commande, :livreur_id, :client_id);
         ");
+        if ($_POST['numero_commande'] != '' && $_POST['date_commande'] != '' && $_POST['livreur_id'] != '' && $_POST['client_id'] != '') {
         $stmt->execute(['numero_commande' => ($_POST['numero_commande']), 'date_commande' => ($_POST['date_commande']), 'livreur_id' => ($_POST['livreur_id']), 'client_id' => ($_POST['client_id'])]);
         echo '<h1>Bravo !</h1>';
         echo 'Votre Commande fait désomais partie de la liste !';
         echo '<br><br>';
         echo '<a href="commandes.php">Retourner à la liste des Commandes</a>';
-         } 
+            } else {
+                echo 'Veuillez renseigner toutes les informations !';
+                echo '<br><br>';
+                echo '<a href="ajoutcommande.php">Retour au formulaire</a>';
+            }
+        } 
     catch (PDOException $e) 
         {
         echo $e->getMessage();
