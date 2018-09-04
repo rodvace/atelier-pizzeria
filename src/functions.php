@@ -85,7 +85,7 @@ function ajoutPizza($pdo)
         INSERT INTO pizza (libelle, reference, prix, url_image)
         VALUES (:libelle, :reference, :prix, :url_image);
         ");
-        if ($_POST['libelle'] != '' && $_POST['reference'] != '' && $_POST['prix'] != '' && $_POST['url_image'] != '') {
+        if (trim($_POST['libelle']) != '' && trim($_POST['reference']) != '' && trim($_POST['prix']) != '' && trim($_POST['url_image']) != '') {
         $stmt->execute(['libelle' => ($_POST['libelle']), 'reference' => ($_POST['reference']), 'prix' => ($_POST['prix']), 'url_image' => ($_POST['url_image'])]);
         echo '<h1>Bravo !</h1>';
         echo 'Votre Pizza fait désomais partie de la liste !';
@@ -111,7 +111,7 @@ function ajoutClient($pdo)
         INSERT INTO client (nom, prenom, ville, age)
         VALUES (:nom, :prenom, :ville, :age);
         ");
-        if ($_POST['nom'] != '' && $POST['prenom'] != '' && $_POST['ville'] != '' && $_POST['age'] != '') {
+        if (trim($_POST['nom']) != '' && trim($_POST['prenom']) != '' && trim($_POST['ville']) != '' && trim($_POST['age']) != '') {
         $stmt->execute(['nom' => ($_POST['nom']), 'prenom' => ($_POST['prenom']), 'ville' => ($_POST['ville']), 'age' => ($_POST['age'])]);
         echo '<h1>Bravo !</h1>';
         echo 'Ce client fait désormais parti de notre liste !';
@@ -177,7 +177,7 @@ function ajoutCommande($pdo)
         INSERT INTO commande (numero_commande, date_commande, livreur_id, client_id)
         VALUES (:numero_commande, :date_commande, :livreur_id, :client_id);
         ");
-        if ($_POST['numero_commande'] != '' && $_POST['date_commande'] != '' && $_POST['livreur_id'] != '' && $_POST['client_id'] != '') {
+        if (trim($_POST['numero_commande']) != '' && trim($_POST['date_commande']) != '00-00-0000' && trim($_POST['livreur_id']) != '' && trim($_POST['client_id']) != '') {
         $stmt->execute(['numero_commande' => ($_POST['numero_commande']), 'date_commande' => ($_POST['date_commande']), 'livreur_id' => ($_POST['livreur_id']), 'client_id' => ($_POST['client_id'])]);
         echo '<h1>Bravo !</h1>';
         echo 'Votre Commande fait désomais partie de la liste !';
