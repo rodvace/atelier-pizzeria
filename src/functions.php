@@ -25,7 +25,7 @@ function listPizza($pdo)
         $stmt->execute();
         while ($row = $stmt->fetch()) {
             echo '<tr>';
-            echo '<td>'.$row['id'].'</td><td>'. $row['libelle'].'</td><td>'.$row['reference'].'</td><td>'.$row['prix'].'</td><td>'.'<img src="/images/'.$row['url_image'].'" width="200px"></td>';
+            echo '<td>'.$row['id'].'</td><td>'. $row['libelle'].'</td><td>'.$row['reference'].'</td><td>'.$row['prix'].'</td><td>'.'<img src="images/'.$row['url_image'].'" width="200px"></td>';
             echo '</tr>';
         }
     } 
